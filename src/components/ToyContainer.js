@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import ToyCard from "./ToyCard"
 
-function ToyContainer({ allToys }) {
+function ToyContainer({ allToys, setAllToys }) {
   return (
     <div id="toy-collection">
       {allToys.map((toy) => {
-        return <ToyCard key={toy.id} toy={toy} />
+        return (
+          <ToyCard
+            key={toy.id}
+            toy={toy}
+            allToys={allToys}
+            setAllToys={setAllToys}
+          />
+        )
       })}
     </div>
   )

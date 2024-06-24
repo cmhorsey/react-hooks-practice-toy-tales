@@ -6,12 +6,12 @@ import ToyContainer from "./ToyContainer"
 
 function App() {
   const [showForm, setShowForm] = useState(false)
+  const [allToys, setAllToys] = useState([])
 
   function handleClick() {
     setShowForm((showForm) => !showForm)
   }
 
-  const [allToys, setAllToys] = useState([])
   const getToys = () => {
     fetch("http://localhost:3001/toys")
       .then((res) => res.json())
@@ -29,7 +29,7 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add a Toy</button>
       </div>
-      <ToyContainer allToys={allToys} />
+      <ToyContainer allToys={allToys} setAllToys={setAllToys} />
     </>
   )
 }
